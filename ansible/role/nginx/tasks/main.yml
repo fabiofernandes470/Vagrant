@@ -1,0 +1,17 @@
+---
+- name: Atualização cache "APT UPDATE"
+  apt:
+    update_cache: yes
+
+- name: Instalação do NGINX "APT INSTALL NGINX"
+  apt:
+    name: nginx
+
+- name: Garantindo site
+  copy:
+    src: site3/
+    dest: /var/www/html
+
+- service:
+    name: nginx
+    state: started
